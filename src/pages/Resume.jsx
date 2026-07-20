@@ -5,7 +5,7 @@ import ResumeBackground from "../components/ResumeBackground";
 import ResumeCard from "../components/ResumeCard";
 import "../css/reset.css";
 import "../css/font.css";
-import "../css/resume.css";
+// import "../css/resume.css";
 import "../css/resumeCard.css";
 
 function Resume() {
