@@ -42,7 +42,7 @@
 }
 .my-p:hover .card-title::after { width: 100%; }
 .card-txts li { padding-top: 1rem;
-  font-size: 1vw;
+  font-size: 2vw;
 }
 .card-txts li strong { font-weight: 700; }
 .mob-txt { display: none; }
@@ -77,6 +77,7 @@
   .p3 strong { font-size: 0.9rem; }
   .mob-txt { display: block; }
   .card-txts { padding-top: 1rem; }
-  .card-txts li { padding-top: 0.5rem; }
+  .card-txts li { padding-top: 0.5rem; font-size: 2.5vw; }
   .card-txts li strong { line-height: 150%; }
 }
+
