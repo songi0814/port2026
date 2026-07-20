@@ -1,0 +1,357 @@
+html,  {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  background: #ffffff;
+  color: #313131;
+  /* 모바일에서 100vh 고정 제거 → min-height 로 */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── 메인 컨테이너 ─────────────────────────── */
+#container {
+  display: grid;
+  /* 데스크탑 기본: 텍스트 30% | 스와이퍼 70% */
+  grid-template-columns: 30% 70%;
+  grid-template-areas: "text swiper";
+  min-height: 100vh;
+}
+
+/* ─── 텍스트 박스 ───────────────────────────── */
+.text-box {
+  grid-area: text;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem;
+  background: #dee6ebe5;
+}
+
+.text-box h2 {
+  font-size: 2vw;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+/* ─── 컬러 칩 ───────────────────────────────── */
+.color-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.color-chips .chip {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* ─── VIDEO 전용 버튼 ────────────────────────── */
+.video-buttons-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.video-buttons-inline button {
+  background: rgb(135, 194, 249);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.video-buttons-inline button:hover {
+  background: #fff;
+  color: rgb(135, 194, 249);
+  border: 1px solid #87c2f9;
+  transform: translateY(-2px);
+}
+
+/* ─── 키워드 / 상세 ─────────────────────────── */
+.keyword {
+  font-size: 2vw;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #313131;
+  line-height: 1.5;
+}
+
+.detail {
+  font-size: 1.5vw;
+  opacity: 0.9;
+  color: #313131;
+  line-height: 1.6;
+}
+
+/* ─── 스와이퍼 영역 ─────────────────────────── */
+.swiper-area {
+  grid-area: swiper;
+  position: relative;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* 데스크탑에서는 100vh 꽉 채움 */
+  min-height: 100vh;
+}
+
+/* ─── Swiper 컴포넌트 ────────────────────────── */
+.mySwiper {
+  width: 80%;
+  height: 70vh;
+  border-radius: 10px;
+  overflow: visible;
+  position: relative;
+}
+
+.mySwiper .swiper-slide {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ─── 페이지네이션 ──────────────────────────── */
+.swiper-pagination {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(50, 50, 50, 0.2);
+  border-radius: 50%;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #87c2f9;
+  transform: scale(1.3);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #87c2f9;
+  width: 42px;
+  height: 42px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.swiper-button-prev {
+  left: -4.5rem;
+}
+
+.swiper-button-next {
+  right: -4.5rem;
+}
+
+
+@media (max-width: 1024px) {
+  #container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "swiper"
+      "text";
+    min-height: 100vh;
+  }
+
+  .swiper-area {
+    padding-top: 2.4rem;
+    width: 100vw;
+    min-height: 55vh;
+  }
+
+  .mySwiper {
+    width: 88%;
+    height: 48vh;
+  }
+
+  .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, -5px);
+  }
+
+
+  .swiper-button-prev {
+    left: -1.2rem;
+  }
+
+  .swiper-button-next {
+    right: -1.2rem;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 32px;
+    height: 32px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 1.4rem;
+  }
+
+  .text-box {
+    padding: 0 0 ;
+    align-items: center;
+    text-align: center;
+    height: auto;
+  }
+
+  .text-box h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .color-chips,
+  .video-buttons-inline {
+    justify-content: center;
+  }
+
+  .keyword {
+    font-size: 1.2rem;
+  }
+
+  .detail {
+    font-size: 0.95rem;
+  }
+}
+
+
+@media (max-width: 767px) {
+  #container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "swiper"
+      "text";
+    min-height: 100svh;
+  }
+
+  .swiper-area {
+    min-height: 50vw;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .mySwiper {
+    width: 92%;
+    height: 52vw;
+    border-radius: 8px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 9px;
+    height: 9px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 32px;
+    height: 32px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 1.4rem;
+  }
+
+  .swiper-button-prev {
+    left: -1.2rem;
+  }
+
+  .swiper-button-next {
+    right: -1.2rem;
+  }
+
+
+  .text-box h2 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .color-chips {
+    gap: 0.55rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .color-chips .chip {
+    width: 30px;
+    height: 30px;
+  }
+
+  .video-buttons-inline {
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .video-buttons-inline button {
+    padding: 0.55rem 1.3rem;
+    font-size: 0.9rem;
+  }
+
+  .keyword {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .detail {
+    font-size: 0.875rem;
+  }
+}
+
+
+@media (max-width: 380px) {
+  .text-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .mySwiper {
+    height: 55vw;
+  }
+
+  .keyword {
+    font-size: 0.9rem;
+  }
+
+  .detail {
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-buttons-inline button {
+    transition: none;
+    transform: none;
+  }
+  .swiper-pagination-bullet {
+    transition: none;
+  }
+}

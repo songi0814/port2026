@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+* {
+   font-size: 10px;
+   font-family: "Noto Sans KR";
+   margin: 0; padding: 0;
+   font: inherit; color: inherit;line-height: 1;
+}
+a {
+   text-decoration: none;
+}
+ol, ul, li {
+   list-style: none;
+}
+button {
+   background: none;border: none;
+   cursor: pointer;
+}
+img, video, iframe {
+   display: block;
+}
+input, select, textarea {
+   outline: none; border: none;
+}
+table {
+   border-collapse: collapse;
+}
+
+:root {
+
+--gradient-macha: linear-gradient(
+   114.41deg,
+   var(--color-shockingly-green) 20.74%,
+   var(--color-lt-green) 65.5%
+);
+--gradient-orange-crush: linear-gradient(
+   111.45deg,
+   var(--color-orangey) 19.42%,
+   #f7bdf8 73.08%
+);
+--gradient-lipstick: linear-gradient(
+   165.72deg,
+   #f7bdf8 21.15%,
+   #cd237f 81.93%
+);
+--gradient-purple-haze: linear-gradient(
+   153.58deg,
+   #f7bdf8 32.25%,
+   #2f3cc0 92.68%
+);
+--gradient-skyfall: linear-gradient(
+   131.77deg,
+   #0a157a 30.82%,
+   #15bfe4 81.82%
+);
+--gradient-emerald-city: linear-gradient(
+   166.9deg,
+   var(--color-shockingly-green) 53.19%,
+   #0085d0 107.69%
+);
+--gradient-summer-fair: linear-gradient(
+   144.02deg,
+   var(--color-blue) 4.56%,
+   var(--color-pink) 72.98%
+);
+--color-shockingly-green: #0ae448;
+--color-surface-white: #ffec3e;
+--color-pink: #fec5fb;
+--color-shockingly-pink: #f100cb;
+--color-orangey: #ff8709;
+--color-lilac: #9d95ff;
+--color-lt-green: #abff84;
+--color-blue: #00bae2;
+--grey-dark: #201f1f;
+--light: var(--color-surface-white);
+--green: var(--color-shockingly-green);
+--green-dark: #0ae448;
+--green-light: var(--color-lt-green);
+--blue: var(--color-blue);
+--purple: var(--color-lilac);
+--red: #cd237f;
+--orange: var(--color-orangey);
+}
+
+html, body {
+   margin: 0;
+}

@@ -1,0 +1,64 @@
+#header {
+    font-size: 10px;
+    position: fixed;
+    left: 0;right: 0;top: 0;
+    padding: 1.5rem 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(135, 194, 249);
+    color: #fff;
+    z-index: 9999;
+}
+
+#header .title a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.dep1 {
+    display: flex; gap: 1vw;
+}
+
+.dep1 li a {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.68);
+    color: rgb(135, 194, 249);
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.dep1 li a:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgba(75, 75, 75, 0.548)
+}
+
+.dep1 li a.active {
+    background-color: #fff;
+    color: rgb(135, 194, 249);
+    font-weight: 700;
+    box-shadow: 0 0.3rem 1rem rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    #header {padding: 1rem 1.5rem;}
+    #header .title a {font-size: 1rem;}
+    .dep1 li a, .dep1 li a:hover, .dep1 li a.active {font-size: 0.8rem;}
+}
+
+@media (max-width: 480px) {
+    #header .title a {display: none !important; }
+    .dep1 {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;}
+}

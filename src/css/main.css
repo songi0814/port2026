@@ -1,0 +1,315 @@
+/* ----- 기본 안정화 ----- */
+
+body.main-page,
+html:has(body.main-page) {
+  height: auto !important;
+  overflow: auto !important;
+  scroll-behavior: smooth !important;
+}
+
+#poster,
+.portfolio-container,
+.portfolio {
+  overflow: visible !important;
+}
+
+#poster {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
+
+/* 접근성용 숨김 텍스트 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ----- LOGO ----- */
+
+.logo {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 900;
+  font-size: clamp(2rem, 2vw, 28px);
+  letter-spacing: 0.2em;
+  color: rgb(255, 252, 225);
+  text-decoration: none;
+
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.6),
+    0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* ----- PORTFOLIO 3D AREA ----- */
+
+.portfolio-container {
+  position: relative;
+  z-index: 3;
+
+  width: 100vw;
+  height: 100vh;
+  max-width: 1024px;
+  max-height: 1024px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 100vw;
+  transform-style: preserve-3d;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.portfolio-container:active {
+  cursor: grabbing;
+}
+
+.portfolio {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  max-width: 1024px;
+  max-height: 1024px;
+
+  transform-style: preserve-3d;
+  pointer-events: auto;
+}
+
+/* ----- PNG LETTERS ----- */
+
+.letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+
+  width: clamp(3.2rem, 6vw, 5rem);
+  aspect-ratio: 100 / 135;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* 각 글자 PNG 경로 */
+.letter-P {
+  background-image: url("/img/p.png");
+}
+
+.letter-o {
+  background-image: url("/img/o.png");
+}
+
+.letter-r {
+  background-image: url("/img/r.png");
+}
+
+.letter-t {
+  background-image: url("/img/t.png");
+}
+
+.letter-f {
+  background-image: url("/img/f.png");
+}
+
+.letter-l {
+  background-image: url("/img/l.png");
+}
+
+.letter-i {
+  background-image: url("/img/i.png");
+}
+
+/* 글자별 크기 보정이 필요할 때 사용 */
+.letter-P {
+  background-size: contain;
+}
+
+.letter-o {
+  background-size: contain;
+}
+
+.letter-r {
+  background-size: contain;
+}
+
+.letter-t {
+  background-size: contain;
+}
+
+.letter-f {
+  background-size: contain;
+}
+
+.letter-l {
+  background-size: contain;
+}
+
+.letter-i {
+  background-size: contain;
+}
+
+/* Safari / 3D 렌더링 안정화 */
+@supports (-webkit-touch-callout: none) {
+  .portfolio-container {
+    perspective: 1200px;
+  }
+
+  .letter {
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+/* ----- CENTER CIRCLE ----- */
+
+.circle-home {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+
+  transform: translate3d(-50%, -50%, 0);
+
+  width: 70vw;
+  height: 70vw;
+  max-width: min(968px, 65svh);
+  max-height: min(968px, 65svh);
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 0 2vh 15vw rgba(255, 255, 255, 0.1),
+    inset 0 -2vh 7.5vw rgba(0, 0, 0, 0.1),
+    0 6vh 10vw rgba(0, 0, 0, 0.15);
+
+  background-image: url("/img/idea.png");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  pointer-events: none;
+}
+
+/* ----- START BUTTON ----- */
+
+.start-btn {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  z-index: 10;
+
+  transform: translateX(-50%);
+
+  padding: 1rem 3rem;
+  font-size: clamp(1.6rem, 2vw, 22px);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+
+  color: rgb(255, 252, 225);
+  background: rgba(255, 255, 255, 0.1);
+
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 40px;
+
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.start-btn a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.start-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* ----- RESPONSIVE ----- */
+
+@media (max-width: 1024px) {
+  .portfolio-container {
+    max-width: 900px;
+    max-height: 900px;
+  }
+
+  .letter {
+    width: clamp(4.8rem, 8vw, 8.5rem);
+  }
+
+  .circle-home {
+    width: 50vw;
+    height: 50vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    top: 4%;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    letter-spacing: 0.16em;
+  }
+
+  .portfolio-container {
+    width: 100vw;
+    height: auto;
+    perspective: 900px;
+  }
+
+  .letter {
+    width: clamp(3.8rem, 10vw, 6.5rem);
+  }
+
+  .circle-home {
+    max-width: 70svh;
+    max-height: 70svh;
+  }
+
+  .start-btn {
+    bottom: 7%;
+    padding: 0.9rem 2.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter {
+    width: clamp(3.2rem, 12vw, 5.2rem);
+  }
+/* 
+  .circle-home {
+    width: 88vw;
+    height: 88vw;
+  } */
+}
